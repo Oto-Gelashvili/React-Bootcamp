@@ -1,0 +1,32 @@
+.product-grid {
+  padding-bottom: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  overflow-x: auto;
+  gap: 1.2rem;
+  scrollbar-width: thin;
+  scrollbar-color: #4a4947 #b17457;
+  width: 100%;
+}
+.product-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.product-grid::-webkit-scrollbar-track {
+  background: #b17457;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background-color: #4a4947;
+  border-radius: 10px;
+}
+
+.product-grid::-webkit-scrollbar-thumb:hover {
+  background-color: #faf7f0;
+}
+
+.product-grid::-webkit-scrollbar-button {
+  display: none;
+}
