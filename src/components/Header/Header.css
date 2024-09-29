@@ -15,11 +15,6 @@ header {
 .shirt {
   font-size: 2rem;
 }
-.title-cont h1 {
-  font-size: 2.4rem;
-  font-weight: bold;
-  color: #faf7f0;
-}
 nav,
 .registration-cont {
   display: flex;
@@ -53,8 +48,8 @@ header a:active {
 .hamburger:hover {
   cursor: pointer;
 }
-
-@media only screen and (max-width: 768px) {
+/* hamburger wont be functioning for now  */
+@media only screen and (max-width: 900px) {
   .hamburger {
     display: flex;
   }
