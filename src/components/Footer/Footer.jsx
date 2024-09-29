@@ -14,7 +14,7 @@ export default function Footer() {
           Policies
         </a>
       </div>
-      <div className="rights">© 2023 FashionFusion. All rights reserved.</div>
+      <div className="rights">© 2024 ServIt. All rights reserved.</div>
     </footer>
   );
 }
