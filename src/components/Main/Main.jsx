@@ -1,5 +1,4 @@
 import React from 'react';
-import './Main.css';
 import HomePage from './HomePage/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import TasksPage from './TasksPage/Tasks';
@@ -11,7 +10,7 @@ import NotFound from './NotFoundPage/NotFound';
 
 const Main = () => {
   return (
-    <main>
+    <>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -21,7 +20,7 @@ const Main = () => {
         <Route path="/assignment-3" element={<AssignmentPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </main>
+    </>
   );
 };
 

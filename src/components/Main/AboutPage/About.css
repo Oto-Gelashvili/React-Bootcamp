@@ -1,0 +1,43 @@
+.about-page-main {
+  padding: 4.8rem;
+  height: 100%;
+}
+h1 {
+  font-size: 3.6rem;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+h2 {
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+.description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 2rem;
+  align-items: center;
+  gap: 8.4rem;
+  margin-bottom: 3.2rem;
+}
+.description img {
+  height: 250px;
+  width: 100%;
+}
+.description .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .description {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .description {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}

@@ -30,3 +30,15 @@
 .product-grid::-webkit-scrollbar-button {
   display: none;
 }
+.home-page-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem 4.8rem;
+  height: 100%;
+}
+@media only screen and (max-width: 475px) {
+  .home-page-main {
+    padding: 0;
+  }
+}
