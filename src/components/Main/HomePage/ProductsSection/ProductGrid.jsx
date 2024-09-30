@@ -2,9 +2,9 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import './ProductGrid.css';
-import shoes from '../../../assets/images/shoes.jpg'; // Go up two levels to src
-import dress from '../../../assets/images/dress.jpg'; // Go up two levels to src
-import jacket from '../../../assets/images/jacket.jpg'; // Go up two levels to src
+import shoes from '../../../../assets/images/shoes.jpg'; // Go up three levels to src
+import dress from '../../../../assets/images/dress.jpg'; // Go up three levels to src
+import jacket from '../../../../assets/images/jacket.jpg'; // Go up three levels to src
 
 const ProductGrid = () => {
   const products = [

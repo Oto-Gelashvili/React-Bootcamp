@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
             width="150"
             height="100%"
             viewBox="0 0 175.14285714285714 36"
-            class="looka-1j8o68f"
+            className="looka-1j8o68f"
           >
             <defs id="SvgjsDefs16781"></defs>
             <g
@@ -43,24 +44,28 @@ export default function Header() {
         </div>
       </div>
       <nav>
-        <a href="_blank" className="home">
+        <NavLink to="/" activeclassname="active" className="nav-link">
           Home
-        </a>
-        <a href="_blank" className="services">
-          Services
-        </a>
-        <a href="_blank" className="tasks">
-          Tasks
-        </a>
-        <a href="_blank" className="about">
+        </NavLink>
+        <NavLink to="/about" activeclassname="active" className="nav-link">
           About
-        </a>
-        <a href="_blank" className="contact">
+        </NavLink>
+        <NavLink to="/contact" activeclassname="active" className="nav-link">
           Contact
-        </a>
-        <a href="_blank" className="assignment">
+        </NavLink>
+        <NavLink to="/tasks" activeclassname="active" className="nav-link">
+          Tasks
+        </NavLink>
+        <NavLink to="/services" activeclassname="active" className="nav-link">
+          Services
+        </NavLink>
+        <NavLink
+          to="/assignment-3"
+          activeclassname="active"
+          className="nav-link"
+        >
           Assignment-3
-        </a>
+        </NavLink>
       </nav>
       <div className="registration-cont">
         <a href="_blank" className="Signup">

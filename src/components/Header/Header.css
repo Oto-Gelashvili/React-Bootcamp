@@ -48,6 +48,10 @@ header a:active {
 .hamburger:hover {
   cursor: pointer;
 }
+
+.nav-link.active {
+  color: orange; /* Active link color */
+}
 /* hamburger wont be functioning for now  */
 @media only screen and (max-width: 900px) {
   .hamburger {
