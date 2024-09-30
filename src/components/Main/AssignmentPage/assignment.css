@@ -1,0 +1,5 @@
+.assignment-main {
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+}
