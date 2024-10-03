@@ -12,14 +12,14 @@ export default function Assignment() {
   };
 
   const list = Object.entries(obj).reduce((rows, [key, value], index) => {
-    rows.push(
+    return [
+      ...rows,
       <tr key={key}>
         <td>{key}</td>
         <td>{value}</td>
         <td>{index}</td>
-      </tr>
-    );
-    return rows;
+      </tr>,
+    ];
   }, []);
 
   return (

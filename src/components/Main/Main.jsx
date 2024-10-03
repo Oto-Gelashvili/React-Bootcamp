@@ -7,7 +7,6 @@ import ContactPage from './ContactPage/Contact';
 import ServicesPage from './ServicesPage/Services';
 import AssignmentPage from './AssignmentPage/Assignment';
 import NotFound from './NotFoundPage/NotFound';
-
 const Main = () => {
   return (
     <>

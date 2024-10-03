@@ -17,7 +17,7 @@ export default function AboutPage() {
               with.
             </p>
           </div>
-          <img src={teamwork} alt="teamwork image" />
+          <img src={teamwork} alt="teamwork" />
         </div>
       </main>
     </>

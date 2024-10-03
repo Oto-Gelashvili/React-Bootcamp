@@ -13,17 +13,17 @@ export default function Header() {
         <NavLink to="/" activeclassname="active" className="nav-link">
           Home
         </NavLink>
+        <NavLink to="/services" activeclassname="active" className="nav-link">
+          Services
+        </NavLink>
+        <NavLink to="/tasks" activeclassname="active" className="nav-link">
+          Tasks
+        </NavLink>
         <NavLink to="/about" activeclassname="active" className="nav-link">
           About
         </NavLink>
         <NavLink to="/contact" activeclassname="active" className="nav-link">
           Contact
-        </NavLink>
-        <NavLink to="/tasks" activeclassname="active" className="nav-link">
-          Tasks
-        </NavLink>
-        <NavLink to="/services" activeclassname="active" className="nav-link">
-          Services
         </NavLink>
         <NavLink
           to="/assignment-3"

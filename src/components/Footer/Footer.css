@@ -4,21 +4,21 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1.8rem 4.8rem;
-  background-color: #d8d2c2;
+  background-color: var(--accent);
   gap: 1.2rem;
-  color: #4a4947;
+  color: var(--text-color);
   font-size: 1.6rem;
 }
 footer a {
   text-decoration: none;
-  color: #4a4947;
+  color: var(--text-color);
 }
 footer a:hover {
-  color: #b17457;
+  color: var(--primary-color);
   transition: 0.4s;
 }
 footer a:active {
-  color: #faf7f0;
+  color: var(--backround-color);
 }
 .footer-cont {
   display: flex;
