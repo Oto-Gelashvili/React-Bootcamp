@@ -6,6 +6,7 @@ import { HeaderProps } from '../components/header/Header';
 import LocaleSwitcher from '../components/header/languageSwitcher';
 import ThemeToggle from '../components/header/themeToggle';
 import { signOutAction } from '../actions/authActions';
+import LoadingComponent from '../loading';
 import {
   Bookmark,
   BriefcaseBusiness,
@@ -78,9 +79,21 @@ export const HamburgerDropdown: React.FC<HeaderProps> = ({
 }) => {
   const { isOpen } = React.useContext(HamburgerContext);
   const pathname = usePathname();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const handleLogout = async () => {
+    if (isLoggingOut) return;
+    setIsLoggingOut(true);
+    try {
+      await signOutAction();
+    } catch (error) {
+      console.error('Logout failed:', error);
+      setIsLoggingOut(false);
+    }
+  };
 
   return (
     <div className={`hamburger-dropdown ${isOpen ? 'isOpen' : '  isClosed'}`}>
+      {isLoggingOut && <LoadingComponent />}
       <Link href={`/${lang}/pricing`} className={` pricingBtn `}>
         <p>{dictionary.pricing}</p>
       </Link>
@@ -161,17 +174,16 @@ export const HamburgerDropdown: React.FC<HeaderProps> = ({
         <p>{dictionary.theme}</p>
         <ThemeToggle />
       </div>
-      <form className="dropdown-link " action={signOutAction}>
-        <button
-          data-cy="logout-btn"
-          className="signBtn cursor-pointer flex justify-between items-center w-full"
-          type="submit"
-        >
-          <LogOut className="text-black dark:text-white" />
-
-          {dictionary.logout}
-        </button>
-      </form>
+      <button
+        data-cy="logout-btn"
+        className="dropdown-link signBtn cursor-pointer flex justify-between items-center w-full"
+        onClick={handleLogout}
+        disabled={isLoggingOut}
+        type="button"
+      >
+        <LogOut className="text-black dark:text-white" />
+        {dictionary.logout}
+      </button>
     </div>
   );
 };

@@ -1,52 +1,66 @@
 'use client';
+
 import React, { useState } from 'react';
-import { signInWithProviderAction } from '../../actions/authActions';
-import { LoaderCircle } from 'lucide-react';
-import { Dictionary } from '../../../../get-dictionaries';
-
-interface SocialLoginButtonsProps {
-  dictionary: Dictionary;
-}
-
-export const SocialLoginButtons = ({ dictionary }: SocialLoginButtonsProps) => {
+import { signInWithGoogle } from '../../actions/authActions';
+import './socialButtons.css';
+import LoadingComponent from '../../loading';
+export const SocialLoginButtons = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleGithubSignIn = async () => {
+  const handleGoogleSignIn = async () => {
     if (isLoading) return;
-
     setIsLoading(true);
     try {
-      await signInWithProviderAction('github');
+      await signInWithGoogle();
     } catch (error) {
+      console.error(error);
       setIsLoading(false);
     }
   };
 
   return (
-    <button
-      className={`flex items-center justify-center gap-2 border border-[var(--secondary-color)] rounded-lg p-4  
-        ${
-          isLoading
-            ? 'bg-[var(--hover-color)] cursor-not-allowed hover:bg-purple-500 hover:text-white active:bg-purple-600 active:text-white'
-            : ' hover:bg-purple-500 hover:text-white hover:border-purple-500 active:bg-purple-600 active:text-white'
-        } 
-        duration-300 relative`}
-      onClick={handleGithubSignIn}
-      disabled={isLoading}
-    >
-      {isLoading ? (
-        <LoaderCircle className="w-12 h-12 animate-spin" />
-      ) : (
-        <svg className="w-12 h-12" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.84 0 4.32-2.58 5.23-5.04 5.5.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"
-          />
-        </svg>
-      )}
-      <p className="text-2xl">
-        {isLoading ? dictionary.auth.loadingGithub : dictionary.auth.github}
-      </p>
-    </button>
+    <>
+      {isLoading && <LoadingComponent />}
+      <button
+        className="gsi-material-button"
+        style={{ width: '100%' }}
+        onClick={handleGoogleSignIn}
+        type="button"
+      >
+        <div className="gsi-material-button-state"></div>
+        <div className="gsi-material-button-content-wrapper">
+          <div className="gsi-material-button-icon">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              style={{ display: 'block' }}
+            >
+              <path
+                fill="#EA4335"
+                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+              ></path>
+              <path
+                fill="#4285F4"
+                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+              ></path>
+              <path
+                fill="#FBBC05"
+                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+              ></path>
+              <path
+                fill="#34A853"
+                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+              ></path>
+              <path fill="none" d="M0 0h48v48H0z"></path>
+            </svg>
+          </div>
+          <span className="gsi-material-button-contents">
+            Sign in with Google
+          </span>
+          <span style={{ display: 'none' }}>Sign in with Google</span>
+        </div>
+      </button>
+    </>
   );
 };

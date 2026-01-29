@@ -166,8 +166,8 @@ export interface Dictionary {
     password: string;
     loading: string;
     loadingRegister: string;
-    loadingGithub: string;
-    github: string;
+    loadingGoogle: string;
+    google: string;
     login: string;
     signUp: string;
     requiredFields: string;

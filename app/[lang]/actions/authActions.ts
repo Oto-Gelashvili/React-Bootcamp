@@ -4,7 +4,6 @@ import { encodedRedirect } from '../../../utils/utils';
 import { createClient } from '../../../utils/supabase/server';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { Provider } from '@supabase/supabase-js';
 import { getDictionary, Locale } from '../../../get-dictionaries';
 
 export const signUpAction = async (formData: FormData) => {
@@ -252,17 +251,20 @@ export const signOutAction = async () => {
   await supabase.auth.signOut();
   return redirect('/sign-in');
 };
-export const signInWithProviderAction = async (provider: Provider) => {
+
+export const signInWithGoogle = async () => {
   const origin = headers().get('origin');
   const supabase = await createClient();
-
   const { data, error } = await supabase.auth.signInWithOAuth({
-    provider,
+    provider: 'google',
     options: {
       redirectTo: `${origin}/auth/callback`,
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      },
     },
   });
-
   if (error) {
     return encodedRedirect('error', '/sign-in', error.message);
   }

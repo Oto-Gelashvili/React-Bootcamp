@@ -54,7 +54,7 @@ export default async function Login({
             {dictionary.auth.login}
           </SubmitButton>
         </div>
-        <SocialLoginButtons dictionary={dictionary} />
+        <SocialLoginButtons />
       </form>
     </div>
   );
